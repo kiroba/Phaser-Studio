@@ -7,6 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:omni_core_ui/omni_core_ui.dart' show OmniOta;
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -188,6 +189,22 @@ class _PhaserStudioShellState extends State<PhaserStudioShell> {
                     ),
                   ],
                 ),
+              ),
+              PopupMenuButton<String>(
+                tooltip: 'More',
+                onSelected: (value) {
+                  if (value == 'check_updates') OmniOta.checkAndPrompt(context);
+                },
+                itemBuilder: (_) => const [
+                  PopupMenuItem<String>(
+                    value: 'check_updates',
+                    child: ListTile(
+                      leading: Icon(Icons.system_update),
+                      title: Text('Check for updates'),
+                      contentPadding: EdgeInsets.zero,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
