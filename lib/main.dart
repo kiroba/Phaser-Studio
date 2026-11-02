@@ -162,15 +162,21 @@ class _PhaserStudioShellState extends State<PhaserStudioShell> {
               children: [
                 const Text(
                   'Phaser 2D Creator Studio',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                 ),
                 Text(
                   'Industry Target: $_selectedIndustry',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                   style: const TextStyle(fontSize: 11, color: Colors.grey),
                 ),
               ],
             ),
             actions: [
+              // Narrow phones: show only the badge icon so the title keeps its room.
+              if (MediaQuery.sizeOf(context).width >= 400)
               Container(
                 margin: const EdgeInsets.only(right: 12),
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
@@ -189,7 +195,15 @@ class _PhaserStudioShellState extends State<PhaserStudioShell> {
                     ),
                   ],
                 ),
-              ),
+              )
+              else
+                const Tooltip(
+                  message: 'Enclave signing',
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 8),
+                    child: Icon(Icons.verified_user, color: Color(0xFF00FFCC), size: 18),
+                  ),
+                ),
               PopupMenuButton<String>(
                 tooltip: 'More',
                 onSelected: (value) {
@@ -212,7 +226,8 @@ class _PhaserStudioShellState extends State<PhaserStudioShell> {
             children: [
               // Industry Selector Ribbon
               Container(
-                height: 48,
+                // Grows with the system font size so the chips aren't clipped.
+                height: 12 + MediaQuery.textScalerOf(context).scale(36).clamp(36.0, 72.0).toDouble(),
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
                 color: const Color(0xFF1E293B),
                 child: ListView.builder(
@@ -428,7 +443,7 @@ class _PhaserStudioShellState extends State<PhaserStudioShell> {
 
   // View 4: LocalSend Export & Subnet Broadcast
   Widget _buildLocalSendExportView() {
-    return Padding(
+    return SingleChildScrollView(
       padding: const EdgeInsets.all(16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
