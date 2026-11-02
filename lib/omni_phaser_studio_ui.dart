@@ -227,7 +227,7 @@ class _PhaserStudioShellState extends State<PhaserStudioShell> {
               // Industry Selector Ribbon
               Container(
                 // Grows with the system font size so the chips aren't clipped.
-                height: 12 + MediaQuery.textScalerOf(context).scale(36).clamp(36.0, 72.0),
+                height: 12 + MediaQuery.textScalerOf(context).scale(36).clamp(36.0, 72.0).toDouble(),
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
                 color: const Color(0xFF1E293B),
                 child: ListView.builder(
