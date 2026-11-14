@@ -1,0 +1,83 @@
+{
+  "manifest_version": "1.0.0",
+  "mod_id": "omnimod.base.fox-01",
+  "version": "0.1.0",
+  "category": "animal",
+  "figure_class": false,
+  "author": {
+    "handle": "kiro",
+    "pubkey_ed25519": null,
+    "attestation_badge": "HUMAN_VERIFIED_CREATOR"
+  },
+  "engine_target": "omniverse-prop-v0",
+  "provenance": {
+    "source_tool": "Procedural bpy build (Blender primitives, flat-shaded) \u2014 Blender 4.2.23 LTS, headless",
+    "base_licence": "CC0 1.0",
+    "licence_record": "Original procedural geometry (Blender primitives) built for this pack \u2014 no third-party assets; CC0 by construction.",
+    "build_script": "build_fox.py (pipeline workspace, beside the pack)",
+    "derived_from": null
+  },
+  "signing": {
+    "status": "unsigned-draft",
+    "note": "Compiler signing (pipeline step S0) is a SHA-256 simulation, not real Ed25519. Staged workspaces are unsigned by design until S0 lands."
+  },
+  "assets": {
+    "spritesheets": [
+      {
+        "id": "sprite_three_quarter",
+        "file": "sprites/sprite_three_quarter_128.png",
+        "frame_px": 128,
+        "profile": "three_quarter",
+        "sha256": "a30cfaeb0d549507c58a4d8967842a5858b5bcd1190b5b7b1576c7c12da794ba"
+      },
+      {
+        "id": "sprite_front",
+        "file": "sprites/sprite_front_128.png",
+        "frame_px": 128,
+        "profile": "front",
+        "sha256": "916287b7adca2cce62738dd6adb4ce0e9caf65a4680eff7e4b37494822f22187"
+      },
+      {
+        "id": "sprite_isometric",
+        "file": "sprites/sprite_isometric_128.png",
+        "frame_px": 128,
+        "profile": "isometric",
+        "sha256": "3e9b13bf741ed01c9a4ab2597cb0a2278a797f071ebb0e5c7c3a626a86656d08"
+      },
+      {
+        "id": "sprite_icon",
+        "file": "sprites/sprite_icon_128.png",
+        "frame_px": 128,
+        "profile": "icon",
+        "sha256": "b50c420e82f87bb011d2190e9616e6b1963a102e9d3a72c8a30a5e1b9d4617c1"
+      }
+    ],
+    "tilemaps": [],
+    "audio_banks": [],
+    "prop": {
+      "master": {
+        "file": "master.glb",
+        "format": "glTF 2.0 binary",
+        "rig": null,
+        "sha256": "02f1c79edb2f232bd6fdc3876fb5b99211d78151e76f00fada2a81cd17c136c6"
+      },
+      "scene": {
+        "file": "master.blend",
+        "sha256": "12c87cb72c1293cd750aba55bbb25cc49129264b61ff96148b3585c4e529eef1"
+      },
+      "render_profiles_baked": [
+        "three_quarter",
+        "front",
+        "isometric",
+        "icon"
+      ],
+      "render_profiles_derivable": [
+        "top_down",
+        "first_person",
+        "third_person",
+        "vr"
+      ],
+      "profiles_note": "Adaptability Principle: a perspective is a render profile over the same master + build script, never a new asset. The master carries no baked camera or projection assumptions."
+    }
+  }
+}
