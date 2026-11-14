@@ -1,0 +1,89 @@
+{
+  "manifest_version": "1.0.0",
+  "mod_id": "omnimod.base.crown-01",
+  "version": "0.1.0",
+  "category": "cosmetic_skin",
+  "figure_class": false,
+  "author": {
+    "handle": "omnimind",
+    "pubkey_ed25519": "0xc1e1e6dd076db06e92ff4cbb30ac445aabcd0d8ddf7a77c3f1731ecde90032b0",
+    "attestation_badge": "SYSTEM_GENERATED"
+  },
+  "engine_target": "omniverse-figure-v0",
+  "provenance": {
+    "source_tool": "Procedural bpy build (Blender primitives + bevels) \u2014 Blender 4.2.23 LTS, headless",
+    "base_licence": "CC0 1.0",
+    "licence_record": "Original procedural geometry (Blender primitives) built for this pack \u2014 no third-party assets; CC0 by construction.",
+    "build_script": "build_crown.py (pipeline workspace, beside the pack)",
+    "derived_from": null
+  },
+  "signing": {
+    "status": "unsigned-draft",
+    "note": "Workspace source. The compiled .omnimod is signed with REAL Ed25519 (compiler S1) by the dedicated pack-author key named in author.pubkey_ed25519; the compiler replaces this block with the signing record at compile time."
+  },
+  "assets": {
+    "spritesheets": [
+      {
+        "id": "sprite_three_quarter",
+        "file": "sprites/sprite_three_quarter_128.png",
+        "frame_px": 128,
+        "profile": "three_quarter",
+        "sha256": "afacf371709df787ad017d431d3573912d3fb0014f83ebc3eb6160b9357d63cb"
+      },
+      {
+        "id": "sprite_front",
+        "file": "sprites/sprite_front_128.png",
+        "frame_px": 128,
+        "profile": "front",
+        "sha256": "b495c1693a0f8aec4004091fc1604b007dfe4f8da5b7111217f53615c650fd8c"
+      },
+      {
+        "id": "sprite_isometric",
+        "file": "sprites/sprite_isometric_128.png",
+        "frame_px": 128,
+        "profile": "isometric",
+        "sha256": "2767f62c8e0dde3a028621de8fa4544f1bc6c2107c4fddbed8eacba41dc050ec"
+      },
+      {
+        "id": "sprite_icon",
+        "file": "sprites/sprite_icon_128.png",
+        "frame_px": 128,
+        "profile": "icon",
+        "sha256": "e38fd9af78bfd96345541a0a6a4f4ab486bb8443a41818fb73b35e102f2cf7df"
+      }
+    ],
+    "tilemaps": [],
+    "audio_banks": [],
+    "cosmetic": {
+      "item": {
+        "id": "head_socket_crown",
+        "socket": "head_socket",
+        "asset_type": "Crown",
+        "source_asset": "blender:build_crown.py"
+      },
+      "master": {
+        "file": "master.glb",
+        "format": "glTF 2.0 binary",
+        "rig": null,
+        "sha256": "2b085c92b1eb54cb0f798f8fa49ea0a5bebf24d73e5c6c0a784c21f25d76f38a"
+      },
+      "scene": {
+        "file": "master.blend",
+        "sha256": "fee39fbe5c3b8dbe90ef3d5b4037ab152847243cf2fad47eff2127270183214f"
+      },
+      "render_profiles_baked": [
+        "three_quarter",
+        "front",
+        "isometric",
+        "icon"
+      ],
+      "render_profiles_derivable": [
+        "top_down",
+        "first_person",
+        "third_person",
+        "vr"
+      ],
+      "profiles_note": "Adaptability Principle: a perspective is a render profile over the same master + build script, never a new asset. The master carries no baked camera or projection assumptions."
+    }
+  }
+}
